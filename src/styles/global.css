@@ -1,0 +1,309 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+    themes: mhlight --default, mhdark --prefersdark;
+}
+
+@plugin "daisyui/theme" {
+    name: "mhlight";
+    default: false;
+    prefersdark: false;
+    color-scheme: "light";
+    --color-base-100: oklch(100% 0 0);
+    --color-base-200: oklch(98% 0 0);
+    --color-base-300: oklch(95% 0 0);
+    --color-base-content: oklch(21% 0.006 285.885);
+    --color-primary: oklch(45% 0.24 277.023);
+    --color-primary-content: oklch(93% 0.034 272.788);
+    --color-secondary: oklch(0.5401 0.208 275.09);
+    --color-secondary-content: oklch(0.7994 0.0834 275.09);
+    --color-accent: oklch(77% 0.152 181.912);
+    --color-accent-content: oklch(38% 0.063 188.416);
+    --color-neutral: oklch(0.9311 0 0);
+    --color-neutral-content: oklch(92% 0.004 286.32);
+    --color-info: oklch(74% 0.16 232.661);
+    --color-info-content: oklch(29% 0.066 243.157);
+    --color-success: oklch(76% 0.177 163.223);
+    --color-success-content: oklch(37% 0.077 168.94);
+    --color-warning: oklch(82% 0.189 84.429);
+    --color-warning-content: oklch(41% 0.112 45.904);
+    --color-error: oklch(71% 0.194 13.428);
+    --color-error-content: oklch(27% 0.105 12.094);
+    --radius-selector: 0.5rem;
+    --radius-field: 0.25rem;
+    --radius-box: 0.5rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 1;
+    --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+    name: "mhdark";
+    default: false;
+    prefersdark: false;
+    color-scheme: "dark";
+    --color-base-100: oklch(0% 0 0);
+    --color-base-200: oklch(19% 0 0);
+    --color-base-300: oklch(22% 0 0);
+    --color-base-content: oklch(87.609% 0 0);
+    --color-primary: oklch(35% 0 0);
+    --color-primary-content: oklch(100% 0 0);
+    --color-secondary: oklch(35% 0 0);
+    --color-secondary-content: oklch(100% 0 0);
+    --color-accent: oklch(35% 0 0);
+    --color-accent-content: oklch(100% 0 0);
+    --color-neutral: oklch(35% 0 0);
+    --color-neutral-content: oklch(100% 0 0);
+    --color-info: oklch(45.201% 0.313 264.052);
+    --color-info-content: oklch(89.04% 0.062 264.052);
+    --color-success: oklch(51.975% 0.176 142.495);
+    --color-success-content: oklch(90.395% 0.035 142.495);
+    --color-warning: oklch(96.798% 0.211 109.769);
+    --color-warning-content: oklch(19.359% 0.042 109.769);
+    --color-error: oklch(62.795% 0.257 29.233);
+    --color-error-content: oklch(12.559% 0.051 29.233);
+    --radius-selector: 0rem;
+    --radius-field: 0rem;
+    --radius-box: 0rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 0;
+    --noise: 0;
+}
+
+
+/* open-sans-regular - latin */
+
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/open-sans-v44-latin-regular.woff2") format("woff2");
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+/* open-sans-300 - latin */
+
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/open-sans-v44-latin-300.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+/* open-sans-800 - latin */
+
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 800;
+    src: url('../fonts/OpenSans-ExtraBold.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+/* brawler-regular - latin */
+
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Brawler';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/brawler-v20-latin-regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+/* mannin-italics - latin */
+
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Mannin-BoldItalic';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../fonts/Mannin-BoldItalic.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+/* dm-serif-text-regular - latin */
+
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'DM Serif Text';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/dm-serif-text-v13-latin-regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+/* dm-serif-text-italic - latin */
+
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'DM Serif Text';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../fonts/dm-serif-text-v13-latin-italic.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+/* dm-sans-200 - latin */
+
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 200;
+    src: url('../fonts/dm-sans-v17-latin-200.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+/* dm-sans-regular - latin */
+
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/dm-sans-v17-latin-regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+/* dm-sans-italic - latin */
+
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'DM Sans';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../fonts/dm-sans-v17-latin-italic.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+/* dm-sans-600 - latin */
+
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/dm-sans-v17-latin-600.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+/* dm-sans-800 - latin */
+
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 800;
+    src: url('../fonts/dm-sans-v17-latin-800.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'PPThin';
+    font-style: thin;
+    src: url('../fonts/PPNeueMontreal-Thin.woff') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'PPBold';
+    font-style: bold;
+    src: url('../fonts/PPNeueMontreal-Bold.woff') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'PPBook';
+    font-style: normal;
+    src: url('../fonts/PPNeueMontreal-Book.woff') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'PPMedium';
+    font-style: normal;
+    src: url('../fonts/PPNeueMontreal-Medium.woff') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'PPItalic';
+    font-style: italic;
+    src: url('../fonts/PPNeueMontreal-Italic.woff') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'DMDisplay';
+    font-style: italic;
+    src: url('../fonts/DMSerifDisplay-Regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Momo';
+    font-style: italic;
+    src: url('../fonts/MomoTrustDisplay-Regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+ 
+@theme {
+    --font-openSans: "Open Sans";
+    --font-Brawler: "Brawler";
+    --font-Mannin: "Mannin-BoldItalic";
+    --font-DMSans: "DM Sans";
+    --font-DMSerif: "DM Serif Text";
+    --font-PPItalic: "PPItalic";
+    --font-PPBook: "PPBook";
+    --font-PPThin: "PPThin";
+    --font-PPBold: "PPBold";
+    --font-PPMedium: "PPMedium";
+    --font-DMDisplay: "DMDisplay";
+    --font-Momo: "Momo";
+}
+
+body {
+    font-family: "PPBook";
+}
