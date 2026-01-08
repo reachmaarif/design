@@ -1,1 +1,105 @@
-index
+
+---
+// src/pages/blog/[...slug].astro
+import { Image } from "astro:assets";
+import Heading from "../../components/Heading.astro";
+import { getCollection, getEntry, render } from "astro:content";
+import BlogLayout from "../../layouts/BlogLayout.astro"; 
+import { components } from "../../components/CustomUI";
+
+export async function getStaticPaths() {
+  const projectEntries = await getCollection("projects");
+  return projectEntries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry: propsEntry } = Astro.props;
+const entry = await getEntry("projects", propsEntry.id);
+if (!entry) {
+  throw new Error("Could not find blog post with id: " + propsEntry.id);
+}
+const { Content } = await render(entry);
+---
+
+<BlogLayout>
+  <article class="font-PP my-10">
+    <div class="flex flex-col items-center justify-center py-10">
+      {
+        entry.data.icon && (
+          <div class="pt-8 my-4 flex flex-col items-center gap-1">
+            <Image
+              src={entry.data.icon}
+              alt={entry.data.iconTitle || entry.data.title}
+              width={61}
+              height={61}
+              class="w-14 h-14"
+            />
+            <figcaption class="py-1 font-bold text-sm">{entry.data.iconTitle}</figcaption>
+          </div>
+        )
+      }
+      <h1 class="text-6xl text-center mb-5">{entry.data.title}</h1>
+
+      {
+        entry.data.tags && (
+          <div class="flex flex-wrap gap-2 mt-4 items-center justify-center">
+            {entry.data.tags.map((tag, index) => (
+              <>
+                <p class="text-sm uppercase text-base-content/70">{tag}</p>
+                {index < entry.data.tags.length - 1 && (
+                  <span class="text-base-content/80">•</span>
+                )}
+              </>
+            ))}
+          </div>
+        )
+      }
+
+      <p class="py-14 max-w-xl text-center text-base-content font-DMSerif font-bold text-balance text-3xl text-base-content my-6 tracking-widest">
+        {entry.data.description}
+      </p>
+      <!-- {
+        entry.data.image && (
+          <div class="max-w-5xl h-auto overflow-hidden my-10">
+            <Image
+              src={entry.data.image}
+              alt={entry.data.imageAlt || entry.data.title}
+              width={1280}
+              height={560}
+              class="w-full h-full object-cover"
+            />
+            <figcaption class="text-center italic text-sm text-gray-600 mt-2">
+              {entry.data.imageAlt}
+            </figcaption>
+          </div>
+        )
+      }
+      -->
+    </div>
+
+    <div class=" ">
+      <!-- <Content components={{ Container, Columns, OrderedList, UnorderedList, StyledHeading }} /> -->
+      <Content components={components} />
+    </div>
+  
+    <a 
+        href="https://www.linkedin.com/in/maarif-haque"
+        target="_blank"
+        >
+        <div class="w-full lg:max-w-5xl mx-auto">
+        <div class="hover:opacity-60 transform transition-transform hover:translate-y-[2px] mb-30 w-full lg:max-w-xl py-10 px-8 bg-base-300 rounded-md">
+      <h5 class="text-3xl font-bold text mb-3">Intruiged to know more?</h5>
+      <div class="py-2 text-xl">
+      <p
+        class="inline-flex items-center text-blue-600 hover:text-blue-800 font-bold"
+      >
+        Get in touch
+      </p>
+      for a deep-dive.
+    </div>
+    </div>
+    </a>
+  </article>
+</BlogLayout>
