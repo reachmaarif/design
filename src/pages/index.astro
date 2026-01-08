@@ -1,0 +1,27 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content"; 
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import Intro from "../components/Intro.astro";
+import PersonalWork from"../components/PersonalWork.astro";
+import Travels from"../components/Travels.astro";
+
+const allProjects = await getCollection("projects");
+const publishedProjects = allProjects
+  .filter((project: CollectionEntry<"projects">) => project.data.published)
+  .sort(
+    (a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
+      a.data.weight - b.data.weight
+  );
+---
+
+<Layout>
+  <main class="px-16 md:px-16 lg:px-15 my-32"> 
+    <Intro/>
+    <section id="work" class="grid md:grid-cols-2 gap-8 py-28">
+      {publishedProjects.map((project) => <ProjectCard project={project} />)}
+    </section>
+    <PersonalWork/>
+    <Travels/>
+  </main>
+</Layout>
