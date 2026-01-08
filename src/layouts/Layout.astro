@@ -1,0 +1,31 @@
+---
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+import Head from "../components/Head.astro";
+import { getEntry } from "astro:content";
+import { fade } from "astro:transitions";
+
+const siteMeta = await getEntry("config", "site");
+const imageUrl = typeof siteMeta?.data.image === 'string'
+  ? siteMeta.data.image
+  : siteMeta?.data.image?.src;
+
+const meta = {
+  ...siteMeta?.data,
+  image: imageUrl,
+  type: "website" as const
+};
+---
+
+<!doctype html>
+<html lang="en" data-theme="mhlight" class="scroll-smooth">
+  <Head meta={meta} />
+  <body>
+    <div class="mx-auto w-full lg:max-w-6xl px-1 isolate">
+      <Navigation />
+      <slot />
+      <Footer />
+    </div>
+  </body>
+</html>
