@@ -1,0 +1,26 @@
+---
+import {Image} from "astro:assets"
+import H2 from "./CustomUI/H2.astro"
+import Reel_1 from "/Reel_1.mp4";
+import Reel_2 from "/Reel_2.mp4";
+import Reel_3 from "/Reel_3.mp4";
+import Reel_4 from "/Reel_4.mp4";
+---
+
+<section class="max-w-6xl pt-8 border-black/20 py-32">
+<div class="font-PP grid grid-cols-3">
+    <div class="col-span-3 md:col-span-2 w-[90%] flex justify-center flex-col">
+      <div class="font-PPMedium text-xl pb-4">Handmade goodness</div>
+      <div class="lg:max-w-3xl text-[16px]">
+      <p>Co founded <a href="https://instagram.com/bow.craftworks" target="_blank" rel="noopener noreferrer" class="font-PPMedium hover: hover:underline transition-colors duration-200 inline-flex items-center gap-0.5">@bow.craftworks<svg class="inline-block" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>, a studio dedicated to handmade, bespoke leather pieces, thoughtfully crafted one stitch at a time.</p>
+      </div>
+    </div>
+</div>    
+    <!-- SnapWidget 
+<div class="py-5"><iframe src="https://snapwidget.com/embed/1114509" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:1020px; height:340px" title="Bow craftworks"></iframe> -->
+<div class="col-span-3 grid grid-cols-2 md:grid-cols-3 gap-4 mt-10">
+    <Image class="rounded-xl" src="/Bowcraftworks-1.png" width={400} height={400} alt="Wallet"/>
+    <Image class="rounded-xl" src="/Bowcraftworks-2.png" width={400} height={400} alt="Wallet"/>
+    <Image class="rounded-xl" src="/Bowcraftworks-3.png" width={400} height={400} alt="Wallet"/>
+  </div>
+</section>

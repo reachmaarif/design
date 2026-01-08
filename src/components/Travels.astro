@@ -1,0 +1,39 @@
+---
+import {Image} from "astro:assets"
+import H2 from "./CustomUI/H2.astro"
+import Reel_1 from "/Reel_1.mp4";
+import Reel_2 from "/Reel_2.mp4";
+import Reel_3 from "/Reel_3.mp4";
+import Reel_4 from "/Reel_4.mp4";
+---
+
+<section class="max-w-6xl pt-12">
+<div class="font-PP grid grid-cols-3">
+    <div class="col-span-3 md:col-span-2 w-[90%] flex justify-center flex-col">
+    <H2 class="font-PPMedium text-xl py-4">Editing travels</H2>
+    <div class="lg:max-w-3xl text-[16px]">
+<p>What started as a page to test out video editing in Express and competitor apps has become a continued project of documenting my travels strictly through mobile edits.</p>
+    </div>
+    </div>
+    
+    
+    <div class="col-span-3 grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 ">
+    <video class="rounded-xl" autoplay loop muted playsinline width="100%">
+    <source src={Reel_1} type="video/mp4" />
+  </video>
+  <video class="rounded-xl" autoplay loop muted playsinline width="100%">
+    <source src={Reel_2} type="video/mp4" />
+  </video>
+  <video class="rounded-xl" autoplay loop muted playsinline width="100%">
+    <source src={Reel_3} type="video/mp4" />
+  </video>
+  <video class="rounded-xl" autoplay loop muted playsinline width="100%">
+    <source src={Reel_4} type="video/mp4" />
+  </video>
+    </div>
+</div>
+
+
+
+
+</section>

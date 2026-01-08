@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import H2 from "./CustomUI/H2.astro"
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+---
+
+<div class="card w-full hover:opacity-60 transform transition-transform hover:translate-y-[2px]">
+<a href={`/${project.id}`} title={project.data.title}>
+  <figure class="w-full aspect-16/8 bg-base-200 rounded-2xl">
+    {
+      project.data.thumbnail && (
+        <div class="flex flex-row items-center gap-3">
+          <Image
+            src={project.data.thumbnail}
+            alt={project.data.iconTitle || project.data.title}
+            title={project.data.iconTitle || project.data.title}
+            width={40}
+            height={40}
+            class="w-12 rounded-md"
+          />
+          <p class="font-PP text-md text-base-content/60">{project.data.iconTitle}</p>
+        </div>
+      )
+    }
+  </figure>
+  <div class="card-body px-0 py-6">
+   <p class="font-PP text-thin text-md">{project.data.iconTitle}</p>
+      <H2 class="font-PP text-xl font-medium">
+        {project.data.title}
+      </H2>
+    <p class="font-PP text-sm lg:w-11/12">{project.data.excerpt}</p>
+    <div class="card-actions items-center mt-1">
+      {project.data.tags.map((tag, index) => (
+        <>
+          <div class="font-PP font-book text-xs opacity-50 uppercase">{tag}</div>
+          {index < project.data.tags.length - 1 && <div class="bg-base-content/70 w-1 h-1 rounded-full"/>}
+        </>
+      ))}
+      
+    </div>
+  </div>
+  </a>
+</div>
+
